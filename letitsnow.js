@@ -14,7 +14,7 @@ function extend() {
 
 function letItSnow() {
     var defaults = {
-        flakeCount: 100,
+        flakeCount: 25,
         flakeColor: '#fff',
         flakeIndex: 999999,
         minSize: 2,
@@ -23,7 +23,7 @@ function letItSnow() {
         maxSpeed: 5,
         collection: "#site_content",
         collectionHeight: 10,
-        updateInterval: 30,
+        updateInterval: 50,
         doRatio: false,
     },
     options = extend(defaults, options),
@@ -57,6 +57,10 @@ function letItSnow() {
         flakeMarkup.style.left = this.x;
         flakeMarkup.style.fontSize = '12px';
         flakeMarkup.style.zIndex = '999999';
+        flakeMarkup.style.mozBorderRadius =  options.maxSize + 'px';
+        flakeMarkup.style.webkitBorderRadius = options.maxSize + 'px';
+        flakeMarkup.style.borderRadius = options.maxSize + 'px';
+
 
         document.querySelector("body").append(flakeMarkup);
         this.element = document.getElementById('flake-' + this.id);
